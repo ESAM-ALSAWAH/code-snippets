@@ -1,0 +1,95 @@
+{
+"SSR Next Page": {
+"prefix": "ssr-page",
+"body": [
+	"import React from 'react';",
+	"import type { Metadata } from \"next\";",
+	"",
+	"export const metadata: Metadata = {",
+	"  title: \"${1:Page Title}\",",
+	"  description: \"${2:Page Description}\",",
+	"};",
+	"",
+	"export default async function ${3:PageName}() {",
+	"  return (",
+	"    <div>",
+	"      <h1>${3}</h1>",
+	"    </div>",
+	"  );",
+	"}"
+],
+"description": "SSR Next.js page with metadata and linked name"
+},  
+"SSR Next Component": {
+"prefix": "ssr-component",
+"body": [
+	"interface ${1:ComponentName}Props {",
+	"  // add props here",
+	"}",
+	"",
+	"const ${1} = (props: ${1}Props) => {",
+	"  return <div>$0</div>;",
+	"};",
+	"",
+	"export { ${1} };"
+],
+"description": "SSR Next.js component with mirrored name placeholders"
+},
+"Client Component": {
+"prefix": "client-component",
+"body": [
+"'use client';",
+"",
+"interface ${1:ComponentName}Props {",
+"  // props",
+"}",
+"",
+"export function ${1}(props: ${1}Props) {",
+"  return <div>$0</div>;",
+"}"
+],
+"description": "Client-side component for Next.js"
+},
+"SSR Error Component": {
+  "prefix": "ssr-error",
+  "body": [
+    "'use client';",
+    "",
+    "import React from 'react';",
+    "",
+    "export default function Error({ error, reset }: { error: Error; reset: () => void }) {",
+    "  return (",
+    "    <div>",
+    "      <h2>Something went wrong!</h2>",
+    "      <button onClick={() => reset()}>Try again</button>",
+    "    </div>",
+    "  );",
+    "}"
+  ],
+  "description": "Next.js error boundary component"
+},
+"SSR Loading Component": {
+  "prefix": "ssr-loading",
+  "body": [
+    "export default function Loading() {",
+    "  return <div>Loading...</div>;",
+    "}"
+  ],
+  "description": "Next.js route-level loading component"
+},
+"Generate Metadata Function": {
+  "prefix": "generate-metadata",
+  "body": [
+    "import type { Metadata } from \"next\";",
+    "",
+    "export async function generateMetadata(): Promise<Metadata> {",
+    "  return {",
+    "    title: \"${1:Dynamic Title}\",",
+    "    description: \"${2:Dynamic Description}\",",
+    "  };",
+    "}"
+  ],
+  "description": "Next.js dynamic metadata function"
+}
+
+}
